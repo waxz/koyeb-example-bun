@@ -4,9 +4,13 @@ console.log(
   `Launching Bun HTTP server on port: ${port}, url: http://0.0.0.0:${port} 🚀`
 );
 
-Bun.serve({
+import { Server } from "@hocuspocus/server";
+
+// Configure the server …
+const server = new Server({
   port: port,
-  fetch(_request) {
-    return new Response("Hello from Koyeb");
-  },
 });
+
+// … and run it!
+server.listen();
+
